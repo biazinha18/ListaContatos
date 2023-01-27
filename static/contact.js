@@ -22,9 +22,8 @@ function find_contact(event){
     const id = document.getElementById('find_id').value;
     $.get("/contacts/"+id, function(data, status){
         let placeholder = document.querySelector('#find_data');
-        let out = "";
         let contact = data['contact']
-        out += `
+        let out = `
             <tr>
                 <td>${contact.id}</td>
                 <td>${contact.name}</td>
