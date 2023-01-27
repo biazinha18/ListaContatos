@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+    <script src="{{url_for('static', filename='contact.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Lista de Contatos</title>
+</head>
+<body>
+        <header>
+            <h1>Lista de Contatos</h1>
+        </header>
+
+    <main>
+        <div >
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contacts">
+
+                    </tbody>
+                </table>
+            </div>
+            <form id="find" >
+                
+                <p>Buscar Contato</p>
+                <div>
+                    <label for="id">ID </label>
+                    <input type="text" name="id" placeholder="Digite o id do contato" id="find_id">
+                </div>
+                <button id="btn" onclick="find_contact(event)">Submit</button>
+            </form>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="find_data">
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <form id="add" >
+                    <p>Adicionar Contato</p>
+                    <div >
+                        <label for="name">Nome </label>
+                        <input type="text" name="name" placeholder="Digite o nome do contato">
+                    </div>
+    
+                    <div >
+                        <label for="phone">Telefone </label>
+                        <input type="text" name="phone" placeholder="Digite o telefone do contato">
+                    </div>
+                    
+                    <button id="btn" onclick="send_json_request('POST', 'add', '')">Submit</button>
+                </form>
+            </div>
+            <div>
+                <form id="update" >
+                    <p>Update de Contato</p>
+                    <div >
+                        <label for="name">ID </label>
+                        <input type="text" name="id" placeholder="Digite o id do contato">
+                    </div>
+                    <div >
+                        <label for="name">Nome </label>
+                        <input type="text" name="name" placeholder="Digite o nome do contato">
+                    </div>
+    
+                    <div >
+                        <label for="phone">Telefone </label>
+                        <input type="text" name="phone" placeholder="Digite o telefone do contato">
+                    </div>
+                    
+                    <button id="btn" onclick="send_json_request('PUT', 'update', 'id')">Submit</button>
+                </form>
+            </div>
+            
+            <form id="delete" >
+                <p>Delete de Contato</p>
+                <div >
+                    <label for="name">ID </label>
+                    <input type="text" name="id" placeholder="Digite o id do contato">
+                </div>
+                <button  id="btn" onclick="send_json_request('DELETE', 'delete', 'id')">Submit</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
